@@ -5,14 +5,20 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
+import { AppRegistry, NavigatorIOS } from 'react-native';
 import PopularListView from './App/PopularListView';
 
 
 export default class redditNative extends Component {
   render() {
     return (
-      <PopularListView></PopularListView>
+      <NavigatorIOS
+        initialRoute={{
+          component: PopularListView,
+          title: 'Reddit',
+        }}
+        style={{flex: 1}}
+      />
     );
   }
 }
