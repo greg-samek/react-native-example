@@ -9,21 +9,21 @@ const initialData = [
      author:'Nobilitie',
      host:'i.imgur.com',
      subreddit: 'r/space',
-     imageUrl:'https://b.thumbs.redditmedia.com/QCZUVdRZ-INrtkcT1xK0o50p2drFfhoy6hKvnAkJUfI.jpg',
+     imageUrl:'https://b.thumbs.redditmedia.com/US4i8eq3Emkz-uDGDf9HICF_boeDLdAM_ERFOgh-vDQ.jpg',
      commentCount: 835,
      submittedTime: 6,
    },
    {
-   title: 'Lorum Ipsum',
+   title: "Need a new year's resolution? Try 'The Ultimate Reading List for Developers' post I wrote a couple of months back",
    author:'Nobilitie',
    host:'i.imgur.com',
    subreddit: 'r/space',
-   imageUrl:'https://b.thumbs.redditmedia.com/0TYXGV417ag7fxdUBYtGC_jrVsLoJjNt-yUn0JwQQoI.jpg',
+   imageUrl:'https://b.thumbs.redditmedia.com/US4i8eq3Emkz-uDGDf9HICF_boeDLdAM_ERFOgh-vDQ.jpg',
    commentCount: 835,
    submittedTime: 6,
    },
    {
-    title: 'Other random title.',
+    title: 'LPT: Most people at the gym are too busy with themselves to pay attention to you or anyone else, so don\'t swat it',
     author:'Nobilitie',
     host:'i.imgur.com',
     subreddit: 'r/space',
@@ -108,11 +108,11 @@ export default class PopularListView extends Component {
 
   render() {
       return (
-        <View style={{flex: 1, paddingTop: 22}}>
+        <View style={{flex: 1}}>
           <ListView
             dataSource={this.state.dataSource}
             renderRow={(rowData) => <ListViewRow navigator={this.props.navigator} {... rowData} /> }
-            renderSeparator={(sectionId, rowId) => <View key={rowId} style={{ flex: 1, height: 2, backgroundColor: '#8E8E8E'}} />}
+            renderSeparator={(sectionId, rowId) => <View key={rowId} style={{ flex: 1, height: 5, backgroundColor: '#F0F0F0'}} />}
           />
         </View>
       );
