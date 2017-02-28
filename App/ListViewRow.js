@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import { Image, NavigatorIOS, Text, TouchableHighlight, View, StyleSheet } from 'react-native';
-// import DetailScreen from './DetailScreen';
+import DetailScreen from './DetailScreen';
 
 export default class ListViewRow extends Component {
 
-  _handleNextPress(title) {
-    // this.props.navigator.push({
-    //   component: DetailScreen,
-    //   title: title,
-    // });
+  _handleNextPress(title, imageUrl) {
+    this.props.navigator.push({
+      component: DetailScreen,
+      title: title,
+      passProps: { title: title, imageUrl: imageUrl },
+    });
   }
 
   render() {
     return (
-      <TouchableHighlight onPress={() => this._handleNextPress(this.props.title)} >
+      <TouchableHighlight onPress={() => this._handleNextPress(this.props.title, this.props.imageUrl)} >
         <View style={{flex: 1,
           flexDirection: 'column',
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}>
           <Image
             style={{
