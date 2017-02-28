@@ -15,7 +15,7 @@ export default class redditNative extends Component {
       <NavigatorIOS
         initialRoute={{
           component: PopularListView,
-          title: 'Reddit',
+          title: 'People',
         }}
         style={{flex: 1}}
       />
