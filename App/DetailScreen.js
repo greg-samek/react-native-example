@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, Image } from 'react-native';
+import { Fetch, ScrollView, Text, TouchableHighlight, StyleSheet, View, Image } from 'react-native';
+import { shareOnTwitter } from 'react-native-social-share';
+import { BASE_URL } from './api';
 
 export default class DetailScreen extends Component {
 
-  constructor() {
-    super();
-    this.state = {bodyText: "Not changed."};
+  constructor(props) {
+     super(props);
+     this.state = {
+       text: ""
+     };
+   }
+
+  componentDidMount() {
+    const { id } = this.props;
+    const ARTICLE_URL = BASE_URL + 'article-' + id + '.json';
+    fetch(ARTICLE_URL)
+    .then((response) => response.json())
+    .then( (json) => {
+      this.setState({text: json})
+    })
+    .catch((error) => {
+      console.warn(error);
+    });
   }
 
   render() {
@@ -13,23 +30,22 @@ export default class DetailScreen extends Component {
       <View style={{flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
-        marginTop: 80,
+        justifyContent: 'flex-start',
       }}>
-        <Image
-          style={{
-            width: 241,
-            height: 161,
-            marginTop: 10,
-            alignSelf: 'center'
-          }}
-          source={{uri: this.props.imageUrl}}
-        />
-        <Text style={{fontWeight: '600', textAlign: 'center', fontFamily: 'helvetica' , fontSize: 17, flex: 0.7, marginTop: 10, marginBottom: 10 }}>
-          {this.props.title}
-        </Text>
-        <Text style={{fontWeight: '400', textAlign: 'center', fontFamily: 'helvetica' , fontSize: 13, flex: 0.7, marginTop: 10 }}>
-          {this.state.bodyText}
-        </Text>
+        <ScrollView>
+          <Image
+            style={{
+              width: 370,
+              height: 289,
+              marginTop: 0,
+              alignSelf: 'center'
+            }}
+            source={{uri: this.props.imageUrl}}
+          />
+          <Text style={{ paddingLeft: 12, fontWeight: '400',  fontFamily: 'helvetica' , fontSize: 15, marginTop: 10 }}>
+                {this.state.text}
+          </Text>
+        </ScrollView>
       </View>
     );
   }

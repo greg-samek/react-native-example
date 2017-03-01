@@ -44,7 +44,7 @@ export default class PopularListView extends Component {
             <ListView style={{marginTop: 60}}
               dataSource={this.state.dataSource}
               renderRow={(rowData) => <ListViewRow navigator={this.props.navigator} {... rowData} /> }
-              renderSeparator={(sectionId, rowId) => <View key={rowId} style={{ flex: 1, height: 5, backgroundColor: '#F0F0F0'}} />}
+              renderSeparator={(sectionId, rowId) => <View key={rowId} style={{ flex: 1, height: 3, backgroundColor: '#F0F0F0'}} />}
             />
           }
 

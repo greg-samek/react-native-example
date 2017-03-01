@@ -1,3 +1,7 @@
 rootProject.name = 'redditNative'
+include ':react-native-image-picker'
+project(':react-native-image-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-picker/android')
+include ':react-native-social-share'
+project(':react-native-social-share').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-social-share/android')
 
 include ':app'

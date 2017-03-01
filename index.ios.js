@@ -17,6 +17,7 @@ export default class redditNative extends Component {
           component: PopularListView,
           title: 'People',
         }}
+        titleTextColor= '#3ab8ec'
         style={{flex: 1}}
       />
     );
